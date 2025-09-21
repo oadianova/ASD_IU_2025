@@ -4,6 +4,7 @@
 package com.iu3.tasks.a0;
 
 import java.util.Scanner;
+
 import static com.iu3.utils.ArrayTools.fillArray;
 import static com.iu3.utils.ArrayTools.printArray;
 
@@ -13,18 +14,15 @@ public class BinarySearch {
 
     public static void binarySearchExample() {
 
-        // 1. Заполнение массива
         int[] array = fillArray();
 
-        // 2. Вывод массива
         System.out.println("Введённый массив:");
         printArray(array);
 
-        // 3. Ввод искомого элемента
         System.out.print("Введите число для поиска: ");
         int target = scanner.nextInt();
 
-        // 4. Итеративный бинарный поиск
+        // 1 способ через циклы
         int resultIterative = binarySearchIterative(array, target);
         if (resultIterative != -1) {
             System.out.println("Итеративный поиск: элемент найден на позиции " + resultIterative);
@@ -32,7 +30,7 @@ public class BinarySearch {
             System.out.println("Итеративный поиск: элемент не найден");
         }
 
-        // 5. Рекурсивный бинарный поиск
+        // 1 способ через рекурсию
         int resultRecursive = binarySearchRecursive(array, target, 0, array.length - 1);
         if (resultRecursive != -1) {
             System.out.println("Рекурсивный поиск: элемент найден на позиции " + resultRecursive);
@@ -44,11 +42,6 @@ public class BinarySearch {
     }
 
 
-
-
-    /**
-     * Итеративная реализация бинарного поиска
-     */
     public static int binarySearchIterative(int[] array, int target) {
         int left = 0;
         int right = array.length - 1;
@@ -57,20 +50,17 @@ public class BinarySearch {
             int mid = left + (right - left) / 2;
 
             if (array[mid] == target) {
-                return mid; // элемент найден
+                return mid;
             } else if (array[mid] < target) {
-                left = mid + 1; // ищем в правой половине
+                left = mid + 1;
             } else {
-                right = mid - 1; // ищем в левой половине
+                right = mid - 1;
             }
         }
 
-        return -1; // элемент не найден
+        return -1;
     }
 
-    /**
-     * Рекурсивная реализация бинарного поиска
-     */
 
     public static int binarySearchRecursive(int[] array, int target, int left, int right) {
         if (left > right) {

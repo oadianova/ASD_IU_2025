@@ -5,9 +5,7 @@ import java.util.Scanner;
 public class ArrayTools {
     private static final Scanner scanner = new Scanner(System.in);
 
-    /**
-     * Метод для заполнения массива пользователем
-     */
+
     public static int[] fillArray() {
         System.out.print("Введите размер массива: ");
         int size = scanner.nextInt();
@@ -28,9 +26,6 @@ public class ArrayTools {
         return array;
     }
 
-    /**
-     * Метод для вывода массива в консоль
-     */
     public static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i]);
