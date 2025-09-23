@@ -1,4 +1,4 @@
-package Б;
+package lab1.b;
 
 /* 2. Пусть любое число – это массив его цифр слева направо.
 Пример, число 1234 – это массив [1,2,3,4].
@@ -18,21 +18,24 @@ public class ArrayMultiplication {
     }
 
     static int[] multiplyArrays(int[] firstArray, int[] secondArray) {
-        int firstNumber = 0;
-        int secondNumber = 0;
-        int resultNumber;
-        for (int i = firstArray.length - 1; i >= 0; i--) {
-            firstNumber += firstArray[i] * (int) Math.pow(10, firstArray.length - i - 1);
+        int resultNumber = convertArrayToNumber(firstArray) * convertArrayToNumber(secondArray);
+        return convertNumberToArray(resultNumber);
+    }
+
+    static int convertArrayToNumber(int[] array) {
+        int number = 0;
+        for (int i = array.length - 1; i >= 0; i--) {
+            number += array[i] * (int) Math.pow(10, array.length - i - 1);
         }
-        for (int i = secondArray.length - 1; i >= 0; i--) {
-            secondNumber += secondArray[i] * (int) Math.pow(10, secondArray.length - i - 1);
-        }
-        resultNumber = firstNumber * secondNumber;
-        int resultNumberLength = ("" + resultNumber).length();
-        int[] resultArray = new int[resultNumberLength];
-        for (int i = resultNumberLength - 1; i >= 0; i--) {
-            resultArray[i] = resultNumber % 10;
-            resultNumber /= 10;
+        return number;
+    }
+
+    static int[] convertNumberToArray(int number) {
+        int arrayLength = ("" + number).length();
+        int[] resultArray = new int[arrayLength];
+        for (int i = arrayLength - 1; i >= 0; i--) {
+            resultArray[i] = number % 10;
+            number /= 10;
         }
         return resultArray;
     }

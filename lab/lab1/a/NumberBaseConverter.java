@@ -1,4 +1,4 @@
-package А;
+package lab1.a;
 
 /* 1. Реализуйте метод, входными данными которого являются два числа N и M,
 где N – число в десятичной системе исчисления, а M – число в диапазоне от
@@ -7,7 +7,7 @@ package А;
 
 import java.util.Scanner;
 
-public class BaseConverter {
+public class NumberBaseConverter {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {

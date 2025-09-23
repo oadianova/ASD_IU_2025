@@ -1,4 +1,4 @@
-package Б;
+package lab1.b;
 
 /* 4. Дан массив целых чисел, представляющий двоичное число.
 Пример, дан массив bi_arr = [1, 1, 0]. Этот массив в десятичной системе
@@ -14,7 +14,7 @@ true – число делится на N, false – нет.
 
 import java.util.Scanner;
 
-public class DivisorChecker {
+public class BinarySequenceDivisibility {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {

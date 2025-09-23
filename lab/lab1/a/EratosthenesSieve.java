@@ -1,11 +1,11 @@
-package А;
+package lab1.a;
 
 /* 4. Дано целое число. Реализуйте метод, который находит N первых простых
 чисел. Используйте алгоритм «Решето Эратосфена». */
 
 import java.util.Scanner;
 
-public class PrimeNumbers {
+public class EratosthenesSieve {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {

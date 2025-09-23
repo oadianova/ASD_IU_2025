@@ -1,4 +1,4 @@
-package Б;
+package lab1.b;
 
 /* 3. Дан массив целых чисел. Минимальное количество элементов – 5 Вернуть
 число, которое является суммой двух наименьших положительных чисел. */
@@ -20,36 +20,39 @@ public class MinimumFinder {
 
         int foundSum = findSumOfMinimums(array);
         if (foundSum > 0) {
-            System.out.println(findSumOfMinimums(array));
+            System.out.println(foundSum);
         } else {
             System.out.println("Нет двух положительных чисел");
         }
     }
 
     static int findSumOfMinimums(int[] array) {
-        int firstMinimum = 0;
-        int secondMinimum = 0;
+        int firstMinimum = -1;
+        int secondMinimum = -1;
         for (int j : array) {
-            if (firstMinimum == 0 && j > 0) {
-                firstMinimum = j;
-                continue;
-            }
-            if (secondMinimum == 0 && j > 0) {
-                secondMinimum = j;
-                continue;
-            }
-            if (j < firstMinimum) {
-                firstMinimum = j;
-                continue;
-            }
-            if (j < secondMinimum) {
-                secondMinimum = j;
+            if (j > 0) {
+                if (firstMinimum == -1) {
+                    firstMinimum = j;
+                } else if (secondMinimum == -1) {
+                    if (j > firstMinimum) {
+                        secondMinimum = j;
+                    } else {
+                        secondMinimum = firstMinimum;
+                        firstMinimum = j;
+                    }
+                } else {
+                    if (j < firstMinimum) {
+                        secondMinimum = firstMinimum;
+                        firstMinimum = j;
+                    } else if (j < secondMinimum) {
+                        secondMinimum = j;
+                    }
+                }
             }
         }
-        if (firstMinimum * secondMinimum == 0) {
-            return 0;
-        }
-        return firstMinimum + secondMinimum;
+        if (firstMinimum != -1 && secondMinimum != -1) {
+            return firstMinimum + secondMinimum;
+        } else return 0;
     }
 
     static void inputArray(int[] array) {
