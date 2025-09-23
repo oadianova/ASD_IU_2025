@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //2. Реализуйте перевод из римских чисел в арабские.
 
-public class NumeralConverter {
+public class NumeralConversion {
     public static Scanner scn = new Scanner(System.in);
 
     static int convertDigit(char digit) {

@@ -9,7 +9,9 @@ public class SieveOfEratosthenes {
     public static Scanner scn = new Scanner(System.in);
 
     public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) System.out.print(arr[i] + " ");
+        for (int i = 0; i < arr.length - 1; i++) {
+            System.out.print(arr[i] + " ");
+        }
         System.out.print(arr[arr.length - 1] + "\n");
     }
 
@@ -41,8 +43,8 @@ public class SieveOfEratosthenes {
     }
 
     public static void main(String[] args) {
-        int n = scn.nextInt();
-        int[] primes = primeNumbers(n);
+        int length = scn.nextInt();
+        int[] primes = primeNumbers(length);
         printArray(primes);
     }
 }

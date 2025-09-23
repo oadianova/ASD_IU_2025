@@ -7,11 +7,15 @@ public class Main {
     public static Scanner scn = new Scanner(System.in);
 
     public static void inputArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) arr[i] = scn.nextInt();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scn.nextInt();
+        }
     }
 
     public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) System.out.print(arr[i] + " ");
+        for (int i = 0; i < arr.length - 1; i++) {
+            System.out.print(arr[i] + " ");
+        }
         System.out.print(arr[arr.length - 1] + "\n");
     }
 
@@ -31,7 +35,7 @@ public class Main {
         }
     }
 
-    public static int binarySearch(int[] arr, int key, int left, int right) {
+    public static int binarySearchIterative(int[] arr, int key, int left, int right) {
         try {
             if (arr[right] == key) return right;
             if (arr[left] == key) return left;
@@ -73,7 +77,7 @@ public class Main {
         inputArray(arr);
         selectionSort(arr);
         printArray(arr);
-        int ans = binarySearch(arr, -1, 0, arrayLength - 1);
+        int ans = binarySearchIterative(arr, -1, 0, arrayLength - 1);
         System.out.println(ans);
         ans = binarySearchRecursive(arr, -1, 0, arrayLength - 1);
         System.out.println(ans);
