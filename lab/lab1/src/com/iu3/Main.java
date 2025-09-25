@@ -7,7 +7,7 @@ import static com.iu3.tasks.b4.TaskB4.taskB4Example;
 
 public class Main {
 
-    static void main() {
+    public static void main(String[] args) {
 
         //  Реализовать алгоритм бинарного поиска двумя способами.
         binarySearchExample();
