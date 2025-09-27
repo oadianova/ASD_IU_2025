@@ -1,1 +1,0 @@
-Сажнов Даниил ИУ3-32Б daSazhnov@yandex.ru
