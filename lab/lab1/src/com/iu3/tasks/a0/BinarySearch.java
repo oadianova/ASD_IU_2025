@@ -5,8 +5,7 @@ package com.iu3.tasks.a0;
 
 import java.util.Scanner;
 
-import static com.iu3.utils.ArrayTools.fillArray;
-import static com.iu3.utils.ArrayTools.printArray;
+import static com.iu3.utils.ArrayTools.*;
 
 public class BinarySearch {
 
@@ -18,6 +17,8 @@ public class BinarySearch {
 
         System.out.println("Введённый массив:");
         printArray(array);
+
+        shellSort(array);
 
         System.out.print("Введите число для поиска: ");
         int target = scanner.nextInt();
@@ -38,7 +39,6 @@ public class BinarySearch {
             System.out.println("Рекурсивный поиск: элемент не найден");
         }
 
-        scanner.close();
     }
 
 

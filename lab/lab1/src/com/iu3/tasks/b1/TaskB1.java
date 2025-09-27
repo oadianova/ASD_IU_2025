@@ -14,23 +14,21 @@ public class TaskB1 {
     }
 
     public static int finder(int[] arr) {
-        int n = arr.length;
-        ShellSort(arr);
         int max = Integer.MIN_VALUE;
-        int m = arr[0];
 
-        for (int i = 0; i < n; i++) {
+        for (int element : arr) {
 
+            // считаем сколько раз встречается число в массиве
             int k = 0;
-            for (int j = i; j < n; j++) {
-                if (arr[j] == m) k++;
+            for (int value : arr) {
+                if (value == element) k++;
             }
-            if (k == m && m > max) {
-                max = m;
+
+            if (k == element && element > max) {
+                max = element;
             }
-            if (i + 1 == n) break;
-            m = arr[i + 1];
         }
+        if (max == Integer.MIN_VALUE) return -1;
         return max;
     }
 }

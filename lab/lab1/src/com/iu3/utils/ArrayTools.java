@@ -34,7 +34,7 @@ public class ArrayTools {
         System.out.println();
     }
 
-    public static void ShellSort(int[] array) {
+    public static void shellSort(int[] array) {
         int n = array.length;
 
         for (int gap = n / 2; gap > 0; gap /= 2) {

@@ -14,9 +14,7 @@ public class TaskB2 {
     public static void taskB2Example() {
         int[] arr1 = fillArray();
         int[] arr2 = fillArray();
-
-        int c = arrayToNumber(arr1) * arrayToNumber(arr2);
-        int[] arr3 = numberToArray(c);
+        int[] arr3 = numberToArray(arrayToNumber(arr1) * arrayToNumber(arr2));
         System.out.println(Arrays.toString(arr3));
     }
 
