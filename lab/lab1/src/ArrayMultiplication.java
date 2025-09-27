@@ -14,42 +14,16 @@ public class ArrayMultiplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] arrA = createIntArray(scanner, 1);
-        int[] arrB = createIntArray(scanner, 2);
+        int[] arrA = Array.createIntArray(scanner, 1, 1);
+        int[] arrB = Array.createIntArray(scanner, 2, 1);
 
         int firstNumber = arrayToNumber(arrA);
         int secondNumber = arrayToNumber(arrB);
 
         int[] resultArray = numberToArray(firstNumber * secondNumber);
         System.out.print("Результат: ");
-        printArray(resultArray);
+        Array.printArray(resultArray);
     };
-
-    private static int[] createIntArray(Scanner scanner, int position) {
-        short length;
-        do {
-            System.out.printf("Введите количество элементов в массиве №%d: ", position);
-            length = scanner.nextShort();
-            if (length < 1) System.out.println("Длина массива не может быть отрицательной или равна нулю.");
-        } while (length < 1);
-        int[] array = new int[length];
-        fillArray(array, scanner);
-        return array;
-    };
-
-    private static void fillArray(int[] array, Scanner scanner) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.printf("Введите элемент №%d: ", i + 1);
-            array[i] = scanner.nextInt();
-        }
-    }
-
-    private static void printArray(int[] array) {
-        for (int num : array) {
-            System.out.printf("%d ", num);
-        }
-        System.out.println();
-    }
 
     private static int arrayToNumber(int[] arr) {
         int result = 0;

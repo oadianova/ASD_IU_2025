@@ -10,43 +10,17 @@ public class TwoMinPositiveSum {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] array = createIntArray(scanner);
-        bubbleSort(array);
-        System.out.printf("Сумма двух наименьших положительных чисел: %d", sum(array));
-    }
+        int[] array = Array.createIntArray(scanner, 1, 5);
+        Array.bubbleSort(array);
+        int result = findMinSum(array);
+        if (result == Integer.MIN_VALUE) {
+            System.out.println("Количество положительных элементов меньше двух");
+        } else {
+            System.out.printf("Сумма двух наименьших положительных чисел: %d", result);
+        };
+    };
 
-    private static int[] createIntArray(Scanner scanner) {
-        short length;
-        do {
-            System.out.print("Введите количество элементов в массиве: ");
-            length = scanner.nextShort();
-            if (length < 5) System.out.println("Длина массива не может быть меньше пяти.");
-        } while (length < 5);
-        int[] array = new int[length];
-        fillArray(array, scanner);
-        return array;
-    }
-
-    private static void fillArray(int[] array, Scanner scanner) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.printf("Введите элемент №%d: ", i + 1);
-            array[i] = scanner.nextInt();
-        }
-    }
-
-    private static void bubbleSort(int[] array) {
-        for (int i = array.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (array[j] > array[j + 1]) {
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                }
-            }
-        }
-    }
-
-    private static int sum(int[] array) {
+    private static int findMinSum(int[] array) {
         int sum = 0;
         byte positiveCount = 0;
         for (int number: array) {
@@ -54,7 +28,8 @@ public class TwoMinPositiveSum {
             sum += number;
             positiveCount++;
             if (positiveCount == 2) break;
-        }
+        };
+        if (positiveCount < 2) return Integer.MIN_VALUE;
         return sum;
     }
 
