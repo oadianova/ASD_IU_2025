@@ -10,13 +10,13 @@ public class Main {
     public static void main(String[] args) {
 
         //  Реализовать алгоритм бинарного поиска двумя способами.
-//        binarySearchExample();
+        binarySearchExample();
 
         //  Задача Б1
-//        taskB1Example();
+        taskB1Example();
 
         //  Задача Б2
-//        taskB2Example();
+        taskB2Example();
 
         //  Задача Б4
         taskB4Example();

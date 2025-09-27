@@ -28,16 +28,16 @@ public class TaskB4 {
         System.out.println(Arrays.toString(result));
     }
 
-    static boolean[] checker(int[] Arr, int n) {
-        if (Arr == null || Arr.length == 0) {
+    static boolean[] checker(int[] arr, int n) {
+        if (arr == null || arr.length == 0) {
             return new boolean[0];
         }
 
-        boolean[] results = new boolean[Arr.length];
+        boolean[] results = new boolean[arr.length];
         int c = 0;
 
-        for (int i = 0; i < Arr.length; i++) {
-            c = c * 2 + Arr[i];
+        for (int i = 0; i < arr.length; i++) {
+            c = c * 2 + arr[i];
             results[i] = (c % n == 0);
         }
 

@@ -19,12 +19,12 @@ public class TaskB1 {
         for (int element : arr) {
 
             // считаем сколько раз встречается число в массиве
-            int k = 0;
+            int counter = 0;
             for (int value : arr) {
-                if (value == element) k++;
+                if (value == element) counter++;
             }
 
-            if (k == element && element > max) {
+            if (counter == element && element > max) {
                 max = element;
             }
         }
