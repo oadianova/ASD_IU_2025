@@ -1,18 +1,17 @@
-package lab1.task1;
-
 // Основное задание.
 // Задание оценивается в 0 баллов, но является обязательным.
 // Реализовать алгоритм бинарного поиска двумя способами.
 
+package lab1.maintask;
+
 import java.util.Scanner;
 
-public class Task1 {
-    public static void main(String[] args) {
-        System.out.print("Input length array: ");
-        int inputLen = getInt();
+public class MainTask {
+    public static void main() {
+        int lenArray = getLenArray();
         System.out.println("Input int array: ");
-        int[] array = new int[inputLen];
-        getIntArray(array, inputLen);
+        int[] array = new int[lenArray];
+        getIntArray(array, lenArray);
         bubbleSortIntArray(array);
         System.out.println("Sorted array:");
         printIntArray(array);
@@ -26,14 +25,21 @@ public class Task1 {
         int inputSecondFindNumber = getInt();
         int indexSecondFind = secondBinaryFind(array, inputSecondFindNumber);
         System.out.println(indexSecondFind);
-
-
-
     }
+
 
     public static int getInt() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt(); // Чтение целого числа
+    }
+
+    public static int getLenArray() {
+        int inputLen = 0;
+        while (inputLen <= 0 || inputLen>1000) {
+            System.out.print("Input length array: ");
+            inputLen=getInt();
+        }
+        return inputLen;
     }
 
     public static void getIntArray(int[] array, int lenArray) {
