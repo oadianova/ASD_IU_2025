@@ -8,24 +8,17 @@ import java.util.Scanner;
 public class SieveOfEratosthenes {
     public static Scanner scn = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        int length = scn.nextInt();
+        int[] primes = primeNumbers(length);
+        printArray(primes);
+    }
+
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.print(arr[arr.length - 1] + "\n");
-    }
-
-    public static int[] sieveFor(int n) {
-        int[] sieve = new int[n];
-        sieve[0] = 1; sieve[1] = 1;
-        for (int i = 2; i*i < n; i++) {
-            if (sieve[i] == 0) {
-                for (int j = i * i; j < n; j += i) {
-                    sieve[j] = 1;
-                }
-            }
-        }
-        return sieve; //0 for prime number
     }
 
     public static int[] primeNumbers(int n) {
@@ -42,9 +35,16 @@ public class SieveOfEratosthenes {
         return arr;
     }
 
-    public static void main(String[] args) {
-        int length = scn.nextInt();
-        int[] primes = primeNumbers(length);
-        printArray(primes);
+    public static int[] sieveFor(int n) {
+        int[] sieve = new int[n];
+        sieve[0] = 1; sieve[1] = 1;
+        for (int i = 2; i*i < n; i++) {
+            if (sieve[i] == 0) {
+                for (int j = i * i; j < n; j += i) {
+                    sieve[j] = 1;
+                }
+            }
+        }
+        return sieve; //0 for prime number
     }
 }

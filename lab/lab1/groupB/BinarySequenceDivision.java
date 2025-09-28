@@ -19,6 +19,14 @@ public class BinarySequenceDivision {
 
     public static Scanner scn = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        int length = scn.nextInt();
+        int[] binarySequence = new int[length];
+        inputArray(binarySequence);
+        int divisor = scn.nextInt();
+        printArray(checkBinarySequenceDivision(binarySequence, divisor));
+    }
+
     public static void inputArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scn.nextInt();
@@ -39,6 +47,18 @@ public class BinarySequenceDivision {
         System.out.print(arr[arr.length - 1] + "\n");
     }
 
+    public static boolean[] checkBinarySequenceDivision(int[] sequence, int divisor) throws IllegalArgumentException {
+        int length = sequence.length;
+        boolean[] result = new boolean[length];
+        int[] decimalSequence = new int[length];
+        for (int i = 0; i < length; i++) {
+            decimalSequence[i] = binarySequenceToDecimalNumber(sequence, 0, i);
+            result[i] = (decimalSequence[i] % divisor == 0);
+        }
+        printArray(decimalSequence);
+        return result;
+    }
+
     public static int binarySequenceToDecimalNumber(int[] sequence, int start, int end) throws IllegalArgumentException {
         int result = 0;
         if (end >= sequence.length) {
@@ -55,26 +75,5 @@ public class BinarySequenceDivision {
             power *= 2;
         }
         return result;
-    }
-
-    public static boolean[] checkBinarySequenceDivision(int[] sequence, int divisor) throws IllegalArgumentException {
-        int length = sequence.length;
-        boolean[] result = new boolean[length];
-        int[] decimalSequence = new int[length];
-        for (int i = 0; i < length; i++) {
-            decimalSequence[i] = binarySequenceToDecimalNumber(sequence, 0, i);
-            result[i] = (decimalSequence[i] % divisor == 0);
-        }
-        printArray(decimalSequence);
-        return result;
-    }
-
-
-    public static void main(String[] args) {
-        int length = scn.nextInt();
-        int[] binarySequence = new int[length];
-        inputArray(binarySequence);
-        int divisor = scn.nextInt();
-        printArray(checkBinarySequenceDivision(binarySequence, divisor));
     }
 }

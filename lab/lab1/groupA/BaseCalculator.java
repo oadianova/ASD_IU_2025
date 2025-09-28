@@ -12,6 +12,17 @@ public class BaseCalculator {
 
     public static Scanner scn = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        int n = scn.nextInt(), m = scn.nextInt();
+        String ans = "";
+        try {
+            ans = toBase(n, m);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(ans);
+    }
+
     public static String toBase(int number, int base) throws IllegalArgumentException {
         if (base < 2 || base > 9) throw new IllegalArgumentException("Incorrect base: base must be between 2 and 9");
         if (number < 0) throw new IllegalArgumentException("Number must be positive");
@@ -21,18 +32,5 @@ public class BaseCalculator {
             number /= base;
         }
         return result.toString();
-
-    }
-
-    public static void main(String[] args) {
-        int n = scn.nextInt(), m = scn.nextInt();
-        String ans = "";
-        try {
-            ans = toBase(n, m);
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-        System.out.println(ans);
     }
 }

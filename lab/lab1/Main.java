@@ -6,6 +6,19 @@ import java.util.Scanner;
 public class Main {
     public static Scanner scn = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        int arrayLength = scn.nextInt();
+        int[] arr = new int[arrayLength];
+        inputArray(arr);
+        selectionSort(arr);
+        printArray(arr);
+        int elementToFind = scn.nextInt();
+        int ans = binarySearchIterative(arr, elementToFind, 0, arrayLength - 1);
+        System.out.println(ans);
+        ans = binarySearchRecursive(arr, elementToFind, 0, arrayLength - 1);
+        System.out.println(ans);
+    }
+
     public static void inputArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scn.nextInt();
@@ -19,12 +32,6 @@ public class Main {
         System.out.print(arr[arr.length - 1] + "\n");
     }
 
-    public static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-    }
-
     public static void selectionSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min = i;
@@ -33,6 +40,12 @@ public class Main {
             }
             swap(arr, i, min);
         }
+    }
+
+    public static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 
     public static int binarySearchIterative(int[] arr, int key, int left, int right) {
@@ -69,17 +82,5 @@ public class Main {
         if (arr[mid] > key) return binarySearchRecursive(arr, key, left, mid - 1);
         else if (arr[mid] < key) return binarySearchRecursive(arr, key, mid + 1, right);
         return mid;
-    }
-
-    public static void main(String[] args) {
-        int arrayLength = scn.nextInt();
-        int[] arr = new int[arrayLength];
-        inputArray(arr);
-        selectionSort(arr);
-        printArray(arr);
-        int ans = binarySearchIterative(arr, -1, 0, arrayLength - 1);
-        System.out.println(ans);
-        ans = binarySearchRecursive(arr, -1, 0, arrayLength - 1);
-        System.out.println(ans);
     }
 }

@@ -10,10 +10,25 @@ import java.util.Scanner;
 public class Isogram {
     public static Scanner scn = new Scanner(System.in);
 
-    public static void swap(char[] arr, int i, int j) {
-        char tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
+    public static void main(String[] args) {
+        System.out.println(isIsogram(scn.next()));
+    }
+
+    public static boolean isIsogram(String str) {
+        char[] letters = str.toLowerCase().toCharArray();
+        quickSort(letters);
+        return !twoSameLetters(letters);
+    }
+
+    public static boolean twoSameLetters(char[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i - 1] == arr[i]) return true;
+        }
+        return false;
+    }
+
+    public static void quickSort(char[] arr) {
+        quickSort(arr, 0, arr.length - 1);
     }
 
     public static void quickSort(char[] arr, int left, int right) {
@@ -33,24 +48,9 @@ public class Isogram {
         quickSort(arr, i, right);
     }
 
-    public static void quickSort(char[] arr) {
-        quickSort(arr, 0, arr.length - 1);
-    }
-
-    public static boolean twoSameLetters(char[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i - 1] == arr[i]) return true;
-        }
-        return false;
-    }
-
-    public static boolean isIsogram(String str) {
-        char[] letters = str.toLowerCase().toCharArray();
-        quickSort(letters);
-        return !twoSameLetters(letters);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(isIsogram(scn.next()));
+    public static void swap(char[] arr, int i, int j) {
+        char tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 }

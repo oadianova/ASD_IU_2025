@@ -10,6 +10,19 @@ import java.util.Scanner;
 public class MultiplicationOfArrayNumber {
     public static Scanner scn = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        int length1 = scn.nextInt();
+        int[] number1 = new int[length1];
+        inputArray(number1);
+
+        int length2 = scn.nextInt();
+        int[] number2 = new int[length2];
+        inputArray(number2);
+
+        int[] mult = multiplyArrays(number1, number2);
+        printArray(mult);
+    }
+
     public static void inputArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scn.nextInt();
@@ -23,6 +36,10 @@ public class MultiplicationOfArrayNumber {
         System.out.print(arr[arr.length - 1] + "\n");
     }
 
+    public static int[] multiplyArrays(int[] number1, int[] number2) {
+        return intToArray(arrayToInt(number1) * arrayToInt(number2));
+    }
+
     public static int arrayToInt(int[] arr) {
         int result = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -34,7 +51,7 @@ public class MultiplicationOfArrayNumber {
 
     public static int[] intToArray(int number) {
         if (number == 0) {
-            return new int[] {0};
+            return new int[]{0};
         }
 
         int length = 0;
@@ -51,24 +68,5 @@ public class MultiplicationOfArrayNumber {
         }
 
         return result;
-    }
-
-
-    public static int[] multiplyArrays(int[] number1, int[] number2) {
-        return intToArray(arrayToInt(number1) * arrayToInt(number2));
-    }
-
-
-    public static void main(String[] args) {
-        int length1 = scn.nextInt();
-        int[] number1 = new int[length1];
-        inputArray(number1);
-
-        int length2 = scn.nextInt();
-        int[] number2 = new int[length2];
-        inputArray(number2);
-
-        int[] mult = multiplyArrays(number1, number2);
-        printArray(mult);
     }
 }
