@@ -14,12 +14,12 @@ public class TaskB2 {
     public static void taskB2Example() {
         int[] arr1 = fillArray();
         int[] arr2 = fillArray();
-        int[] arr3 = numberToArray(arrayToNumber(arr1) * arrayToNumber(arr2));
+        int[] arr3 = longToArray((long) arrayToInt(arr1) * arrayToInt(arr2));
         System.out.println(Arrays.toString(arr3));
     }
 
-    public static int[] numberToArray(int n) {
-        char[] chars = Integer.toString(n).toCharArray();
+    public static int[] longToArray(long n) {
+        char[] chars = Long.toString(n).toCharArray();
         int[] result = new int[chars.length];
 
         for (int i = 0; i < chars.length; i++) {
@@ -30,7 +30,7 @@ public class TaskB2 {
     }
 
 
-    public static int arrayToNumber(int[] arr) {
+    public static int arrayToInt(int[] arr) {
         int result = 0;
 
         for (int digit : arr) {
