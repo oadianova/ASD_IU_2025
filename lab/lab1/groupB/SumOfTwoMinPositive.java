@@ -25,13 +25,13 @@ public class SumOfTwoMinPositive {
             System.out.println("Length must be more than 5");
             return -1;
         }
-        int[] arrCopy = new int[arr.length];
-        copyArray(arr, arrCopy);
-        insertionSort(arrCopy);
+//        int[] arrCopy = new int[arr.length];
+//        copyArray(arr, arrCopy);
+        insertionSort(arr);
         int i = 0;
-        while (arrCopy[i] <= 0) i++;
+        while (arr[i] <= 0) i++;
         try {
-            return arrCopy[i] + arrCopy[i + 1];
+            return arr[i] + arr[i + 1];
         } catch (ArrayIndexOutOfBoundsException exception) {
             return 0;
         }
@@ -43,21 +43,21 @@ public class SumOfTwoMinPositive {
         }
     }
 
-    public static void copyArray(int[] data, int[] copy) {
-        for (int i = 0; i < data.length; i++) {
-            try {
-                copy[i] = data[i];
-            } catch (ArrayIndexOutOfBoundsException exception) {
-                System.out.println("Index out of range");
-                return;
-            }
-        }
-    }
+//    public static void copyArray(int[] data, int[] copy) {
+//        for (int i = 0; i < data.length; i++) {
+//            try {
+//                copy[i] = data[i];
+//            } catch (ArrayIndexOutOfBoundsException exception) {
+//                System.out.println("Index out of range");
+//                return;
+//            }
+//        }
+//    }
 
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
-                swap(arr, arr[j - 1], arr[j]);
+                swap(arr, j - 1, j);
             }
         }
     }

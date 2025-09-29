@@ -19,28 +19,28 @@ public class ValueFrequencyCount {
 
     public static int countValueFrequency(int[] arr) {
         int length = arr.length;
-        int[] arrCopy = new int[length];
-        copyArray(arr, arrCopy);
-        quickSort(arrCopy);
+//        int[] arrCopy = new int[length];
+//        copyArray(arr, arrCopy);
+        quickSort(arr);
         int count = 1;
         for (int i = length - 1; i > 1; i--) {
-            if (arrCopy[i - 1] == arrCopy[i]) count++;
-            else if (count == arrCopy[i]) return count;
+            if (arr[i - 1] == arr[i]) count++;
+            else if (count == arr[i]) return count;
             else count = 1;
         }
         return -1;
     }
 
-    public static void copyArray(int[] data, int[] copy) {
-        for (int i = 0; i < data.length; i++) {
-            try {
-                copy[i] = data[i];
-            } catch (ArrayIndexOutOfBoundsException exception) {
-                System.out.println("Index out of range");
-                return;
-            }
-        }
-    }
+//    public static void copyArray(int[] data, int[] copy) {
+//        for (int i = 0; i < data.length; i++) {
+//            try {
+//                copy[i] = data[i];
+//            } catch (ArrayIndexOutOfBoundsException exception) {
+//                System.out.println("Index out of range");
+//                return;
+//            }
+//        }
+//    }
 
     public static void inputArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {

@@ -22,23 +22,29 @@ public class SieveOfEratosthenes {
     }
 
     public static int[] primeNumbers(int n) {
-        int[] arr = new int[n]; int j = 0, lastNumber = 2;
-        while (j < n) {
-            int[] sieve = sieveFor(lastNumber);
-            for (int i = 0; i < lastNumber; i++) {
-                if (sieve[i] == 0) arr[j++] = i;
-                if (j == n) break;
+        int[] arr = new int[n];
+        int lastNumber;
+        if (n <= 20) {
+            lastNumber = n * 5;
+        } else {
+            lastNumber = (int) Math.round(n * (Math.log(n) + Math.log(Math.log(n)) - 0.5));
+        }
+        int[] sieve = sieveFor(lastNumber);
+        int numbersQuantity = 0;
+        for (int i = 2; i < sieve.length & numbersQuantity < n; i++) {
+            if (sieve[i] == 0) {
+                arr[numbersQuantity] = i;
+                numbersQuantity++;
             }
-            lastNumber *= lastNumber;
-            if (j < n) j = 0;
         }
         return arr;
     }
 
     public static int[] sieveFor(int n) {
         int[] sieve = new int[n];
-        sieve[0] = 1; sieve[1] = 1;
-        for (int i = 2; i*i < n; i++) {
+        sieve[0] = 1;
+        sieve[1] = 1;
+        for (int i = 2; i * i < n; i++) {
             if (sieve[i] == 0) {
                 for (int j = i * i; j < n; j += i) {
                     sieve[j] = 1;
