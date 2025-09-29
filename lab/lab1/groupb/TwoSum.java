@@ -30,6 +30,7 @@ public class TwoSum {
     }
 
     public static int[] findTwoSum(int[] array, int target) {
+        // Сложность O(n log n) - сортировка + два указателя, при n = натуральному числу, log(n)<n^2
         int[] sortedArray = copyArray(array);
         sortArray(sortedArray);
 
