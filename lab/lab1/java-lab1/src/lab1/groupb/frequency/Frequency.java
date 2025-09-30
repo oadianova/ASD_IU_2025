@@ -6,13 +6,16 @@
  */
 package lab1.groupb.frequency;
 
-import lab1.maintask.MainTask;
+import lab1.utils.ArrayUtils;
+
+import java.util.Scanner;
 
 public class Frequency {
     public static void main() {
-        int lenArray = MainTask.getLenArray();
+        Scanner in = new Scanner(System.in);
+        int lenArray = ArrayUtils.getLenArray(in);
         int[] array = new int[lenArray];
-        MainTask.getIntArray(array, lenArray);
+        ArrayUtils.getIntArray(in, array, lenArray);
 
         System.out.println("Find number: " + findFreqNumber(array));
     }

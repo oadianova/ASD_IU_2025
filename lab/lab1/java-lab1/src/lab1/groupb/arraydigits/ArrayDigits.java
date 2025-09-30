@@ -7,62 +7,42 @@
 */
 package lab1.groupb.arraydigits;
 
-import lab1.maintask.MainTask;
+import lab1.utils.ArrayUtils;
+
+import java.util.Scanner;
 
 public class ArrayDigits {
     public static void main() {
-        int firstInt = -1, secondInt = -1;
-        while (firstInt < 0) {
-            System.out.print("Input first number: ");
-            firstInt = MainTask.getInt();
-        }
-        while (secondInt < 0) {
-            System.out.print("Input second number: ");
-            secondInt = MainTask.getInt();
-        }
+        Scanner in = new Scanner(System.in);
+        int lenFirstNumber = ArrayUtils.getLenArray(in, "Input length first number: ");
+        byte[] firstNumber = new byte[lenFirstNumber];
+        readDigitByteArray(in, firstNumber);
+//        printByteArray(firstNumber);
 
-        byte[] firstNumber = new byte[10], secondNumber = new byte[10];
-        if (!intToArrayDigits(firstNumber, firstInt)) {
-            System.out.println("Error convert first number");
-            return;
-        }
-        if (!intToArrayDigits(secondNumber, secondInt)) {
-            System.out.println("Error convert second number");
-            return;
-        }
+        int lenSecondNumber = ArrayUtils.getLenArray(in,"Input length second number: ");
+        byte[] secondNumber = new byte[lenSecondNumber];
+        readDigitByteArray(in, secondNumber);
 
-        byte[] answerNumber = new byte[10];
+        // Максимальное возможное количество цифр значения произведения равно
+        // сумме количеств цифр множителей
+        byte[] answerNumber = new byte[lenFirstNumber+lenSecondNumber];
         if (!multiplicationByteArray(firstNumber, secondNumber, answerNumber)) {
             System.out.println(("Error Multiplication Byte Array"));
             return;
         }
 
-        byte[] cleanFirstNumber = new byte[cleanLenByteArray(firstNumber)];
-        byte[] cleanSecondNumber = new byte[cleanLenByteArray(secondNumber)];
         byte[] cleanAnswerNumber = new byte[cleanLenByteArray(answerNumber)];
-        cleanByteArray(firstNumber, cleanFirstNumber);
-        cleanByteArray(secondNumber, cleanSecondNumber);
         cleanByteArray(answerNumber, cleanAnswerNumber);
 
-        printByteArrayFormat(cleanFirstNumber);
+        printByteArrayFormat(firstNumber);
         System.out.print(" * ");
-        printByteArrayFormat(cleanSecondNumber);
+        printByteArrayFormat(secondNumber);
         System.out.print(" = ");
         printByteArrayFormat(cleanAnswerNumber);
         System.out.println();
 
     }
 
-    public static boolean intToArrayDigits(byte[] array, int number) {
-        if (number < 0) {
-            return false;
-        }
-        for (int i = 0; i < array.length; i++) {
-            array[array.length - 1 - i] = (byte) (number % 10);
-            number /= 10;
-        }
-        return number==0;
-    }
 
     public static boolean multiplicationByteArray(byte[] firstNumber, byte[] secondNumber, byte[] answerNumber) {
         for (int i = 0; i < answerNumber.length; i++) {
@@ -90,17 +70,24 @@ public class ArrayDigits {
         return true;
     }
 
+    public static void readDigitByteArray(Scanner in, byte[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (byte)((int)in.nextByte()%10);
+        }
+    }
+
     public static void printByteArray(byte[] array) {
         for (byte element : array) {
             System.out.print((int) element + " ");
         }
         System.out.println();
     }
+
     public static void printByteArrayFormat(byte[] array) {
         System.out.print("[");
         for (int i = 0; i < array.length; i++) {
-            System.out.print((int) array[i]);
-            if (i != array.length-1){
+            System.out.print(array[i]);
+            if (i != array.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -130,3 +117,11 @@ public class ArrayDigits {
         }
     }
 }
+
+/*
+Input length first number: 4
+1 2 3 4
+Input length second number: 2
+1 1
+[1, 2, 3, 4] * [1, 1] = [1, 3, 5, 7, 4]
+ */

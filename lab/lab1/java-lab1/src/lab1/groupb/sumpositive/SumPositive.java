@@ -5,17 +5,20 @@
 */
 package lab1.groupb.sumpositive;
 
-import lab1.maintask.MainTask;
+import lab1.utils.ArrayUtils;
+
+import java.util.Scanner;
 
 public class SumPositive {
     public static void main() {
+        Scanner in = new Scanner(System.in);
         int lenArray = -1;
         while (lenArray < 5) {
             System.out.print("Input length array (>4): ");
-            lenArray = MainTask.getInt();
+            lenArray = in.nextInt();
         }
         int[] array = new int[lenArray];
-        MainTask.getIntArray(array, lenArray);
+        ArrayUtils.getIntArray(in, array, lenArray);
         
         int[] answer = new int[2];
         findTwoMinPositive(array,answer);
