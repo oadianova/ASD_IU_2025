@@ -10,8 +10,8 @@ public class TwoMinPositiveSum {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] array = Array.createIntArray(scanner, 1, 5);
-        Array.bubbleSort(array);
+        int[] array = ArrayUtils.createIntArray(scanner, 1, 5);
+        ArrayUtils.bubbleSort(array);
         int result = findMinSum(array);
         if (result == Integer.MIN_VALUE) {
             System.out.println("Количество положительных элементов меньше двух");

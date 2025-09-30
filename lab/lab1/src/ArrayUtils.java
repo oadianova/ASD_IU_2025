@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Array {
+public class ArrayUtils {
     public static int[] createIntArray(Scanner scanner, int position, int minLength) {
         int length;
         do {

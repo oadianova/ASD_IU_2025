@@ -14,15 +14,15 @@ public class ArrayMultiplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] arrA = Array.createIntArray(scanner, 1, 1);
-        int[] arrB = Array.createIntArray(scanner, 2, 1);
+        int[] arrA = ArrayUtils.createIntArray(scanner, 1, 1);
+        int[] arrB = ArrayUtils.createIntArray(scanner, 2, 1);
 
         int firstNumber = arrayToNumber(arrA);
         int secondNumber = arrayToNumber(arrB);
 
         int[] resultArray = numberToArray(firstNumber * secondNumber);
         System.out.print("Результат: ");
-        Array.printArray(resultArray);
+        ArrayUtils.printArray(resultArray);
     };
 
     private static int arrayToNumber(int[] arr) {

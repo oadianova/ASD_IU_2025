@@ -10,11 +10,11 @@ public class BinarySearch {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] array = Array.createIntArray(scanner, 1, 1);
+        int[] array = ArrayUtils.createIntArray(scanner, 1, 1);
 
-        Array.bubbleSort(array);
+        ArrayUtils.bubbleSort(array);
         System.out.print("Упорядоченный массив: ");
-        Array.printArray(array);
+        ArrayUtils.printArray(array);
 
         System.out.print("Введите элемент, индекс которого хотите найти: ");
         int searchValue = scanner.nextInt();

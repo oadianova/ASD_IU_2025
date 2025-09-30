@@ -11,8 +11,8 @@ public class FrequentElement {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] array = Array.createIntArray(scanner, 1, 1);
-        Array.bubbleSort(array);
+        int[] array = ArrayUtils.createIntArray(scanner, 1, 1);
+        ArrayUtils.bubbleSort(array);
 
         int count = 1;
         int maxValue = -1;
