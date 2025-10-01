@@ -13,50 +13,58 @@ public class ArrayMultiplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] num1 = ArrayUtils.inputArrayFromUser(scanner, "для первого числа");
-        int[] num2 = ArrayUtils.inputArrayFromUser(scanner, "для второго числа");
+        System.out.println("Введите количество цифр первого числа:");
+        int n1 = scanner.nextInt();
+        int[] num1 = inputDigitsArray(scanner, n1, "первого числа");
+
+        System.out.println("Введите количество цифр второго числа:");
+        int n2 = scanner.nextInt();
+        int[] num2 = inputDigitsArray(scanner, n2, "второго числа");
 
         int[] result = multiplyArrays(num1, num2);
-
         ArrayUtils.printArray(result, "Результат умножения");
 
         scanner.close();
     }
 
+    private static int[] inputDigitsArray(Scanner scanner, int size, String arrayName) {
+        int[] array = new int[size];
+        System.out.println("Введите цифры " + arrayName + " (слева направо):");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
     public static int[] multiplyArrays(int[] num1, int[] num2) {
-        int number1 = arrayToNumber(num1);
-        int number2 = arrayToNumber(num2);
-        int product = number1 * number2;
+        int len1 = num1.length;
+        int len2 = num2.length;
+        int[] result = new int[len1 + len2];
 
-        return numberToArray(product);
-    }
+        for (int i = len1 - 1; i >= 0; i--) {
+            for (int j = len2 - 1; j >= 0; j--) {
+                int product = num1[i] * num2[j];
+                int sum = product + result[i + j + 1];
 
-    private static int arrayToNumber(int[] arr) {
-        int number = 0;
-        for (int i = 0; i < arr.length; i++) {
-            number = number * 10 + arr[i];
-        }
-        return number;
-    }
-
-    private static int[] numberToArray(int number) {
-        if (number == 0) {
-            return new int[]{0};
+                result[i + j + 1] = sum % 10;
+                result[i + j] += sum / 10;
+            }
         }
 
-        int temp = number;
-        int length = 0;
-        while (temp > 0) {
-            temp /= 10;
-            length++;
+        int startIndex = 0;
+        while (startIndex < result.length - 1 && result[startIndex] == 0) {
+            startIndex++;
         }
 
-        int[] result = new int[length];
-        for (int i = length - 1; i >= 0; i--) {
-            result[i] = number % 10;
-            number /= 10;
+        if (startIndex == 0) {
+            return result;
         }
 
-        return result;
+        int[] finalResult = new int[result.length - startIndex];
+        for (int i = 0; i < finalResult.length; i++) {
+            finalResult[i] = result[startIndex + i];
+        }
+
+        return finalResult;
     }
 }
