@@ -2,14 +2,15 @@
 * Дан массив целых чисел. Минимальное количество элементов – 5 Вернуть
 число, которое является суммой двух наименьших положительных чисел. */
 
+package lab1;
 
 public class MinimalSum {
     public static void main(String[] args){
-        int size = Array.arraySize();
+        int size = ArrayUtils.inputArraySize();
         if (size >= 5){
             int[] array = new int[size];
-            Array.inputArray(array);
-            Array.selectionSort(array);
+            ArrayUtils.inputArray(array);
+            ArrayUtils.selectionSort(array);
             System.out.println(sumOfTwoNumbers(array));
         }
 

@@ -3,17 +3,29 @@
 массиве равна его значению. Если таких чисел нет, вернуть «-1». Если
 таких чисел несколько, вернуть наибольшее. */
 
+package lab1;
 
 public class FrequencyEqualValue {
 
     public static void main(String[] args){
-        int size = Array.arraySize();
+        int size = ArrayUtils.inputArraySize();
         int[] array = new int[size];
-        Array.inputArray(array);
-        Array.selectionSort(array);
+        ArrayUtils.inputArray(array);
+        ArrayUtils.selectionSort(array);
         System.out.println(maxNumber(array));
 
     }
+
+    private static int maxNumber(int[] array){
+        int maxValue = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (equalValues(array, array[i]) &&  array[i] > maxValue) {
+                maxValue = array[i];
+            }
+        }
+        return maxValue;
+    }
+
 
     private static boolean equalValues(int[] array, int number){
         int amount = 0;
@@ -23,17 +35,5 @@ public class FrequencyEqualValue {
             }
         }
         return (amount == number);
-    }
-
-
-
-    private static int maxNumber(int[] array){
-        int maxValue = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (equalValues(array, array[i]) &&  array[i] > maxValue) {
-               maxValue = array[i];
-           }
-        }
-        return (maxValue == 0) ? -1 : maxValue;
     }
 }

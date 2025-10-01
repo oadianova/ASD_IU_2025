@@ -1,5 +1,7 @@
 /* Основное задание. Реализовать алгоритм бинарного поиска двумя способами. */
 
+package lab1;
+
 import java.util.Scanner;
 
 
@@ -7,11 +9,11 @@ public class BinarySearch {
 
     public static void main(String[] args){
 
-        int size = Array.arraySize();
+        int size = ArrayUtils.inputArraySize();
         int[] array = new int[size];
-        Array.inputArray(array);
-        Array.selectionSort(array);
-        Array.outputArray(array);
+        ArrayUtils.inputArray(array);
+        ArrayUtils.outputArray(array);
+        ArrayUtils.selectionSort(array);
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число, которое нужно будет найти");

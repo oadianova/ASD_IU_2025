@@ -1,13 +1,16 @@
-
+package lab1;
 
 import java.util.Scanner;
 
-public class Array {
-    public static int arraySize() {
-        Scanner scanner = new Scanner(System.in);
+public class ArrayUtils {
+
+    private static Scanner scanner = new Scanner(System.in);
+
+    
+    public static int inputArraySize() {
         System.out.println("Введите количество чисел в массиве");
-        int amount = scanner.nextInt();
-        return amount;
+        int size = scanner.nextInt();
+        return size;
     }
 
 
@@ -22,9 +25,9 @@ public class Array {
 
     public static void outputArray(int array[]) {
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
-            System.out.print(" "); 
+            System.out.print(array[i] + " ");
         }
+        System.out.println(" ");
     }
 
    public static void selectionSort(int[] array){
