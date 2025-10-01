@@ -1,3 +1,5 @@
+//Реализуйте перевод из римских чисел в арабские.
+
 package groupa;
 
 import java.util.Scanner;
@@ -8,23 +10,23 @@ public class RomanToArabic {
         String roma = "IVXLCDM";
         Scanner scanner = new Scanner(System.in);
         System.out.print("Type a romanian num to convert: ");
-        String rom_num = scanner.nextLine();
+        String romNum = scanner.nextLine();
         int res = 0;
-        for(int i = rom_num.length()-1; i>=0; i--){
-            char cur_char = rom_num.charAt(i);
-            int cur_num = resolve[roma.indexOf(cur_char)];
-            if((i != rom_num.length()-1)){
-                char prev_char = rom_num.charAt(i+1);
-                int prev_num = resolve[roma.indexOf(prev_char)];
-                if(cur_num >= prev_num){
-                    res += cur_num;
+        for(int i = romNum.length()-1; i>=0; i--){
+            char curChar = romNum.charAt(i);
+            int curNum = resolve[roma.indexOf(curChar)];
+            if((i != romNum.length()-1)){
+                char prevChar = romNum.charAt(i+1);
+                int prevNum = resolve[roma.indexOf(prevChar)];
+                if(curNum >= prevNum){
+                    res += curNum;
                 }
                 else{
-                    res -= cur_num;
+                    res -= curNum;
                 }
             }
             else{
-                res += cur_num;
+                res += curNum;
             }
         }
         scanner.close();

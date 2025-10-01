@@ -1,6 +1,10 @@
+//Дан массив целых чисел. Минимальное количество элементов – 5. Вернуть
+//число, которое является суммой двух наименьших положительных чисел.
+
 package groupb;
 
 import java.util.Scanner;
+import functions.ArrayUtils;
 
 public class SumTwoSmallest {
     public static void main(String[] args) {
@@ -14,13 +18,9 @@ public class SumTwoSmallest {
             return;
         }
 
-        int[] array = new int[n];
-        System.out.println("Введите элементы массива:");
-        for (int i = 0; i < n; i++) {
-            array[i] = scanner.nextInt();
-        }
-
+        int[] array = ArrayUtils.inputArrayFromUser(scanner, "");
         int result = sumTwoSmallestPositive(array);
+
         System.out.println("Сумма двух наименьших положительных чисел: " + result);
 
         scanner.close();

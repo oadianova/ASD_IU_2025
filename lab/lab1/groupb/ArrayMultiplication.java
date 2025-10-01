@@ -1,37 +1,24 @@
+//Пусть любое число – это массив его цифр слева направо. Пример, число
+//1234 – это массив [1,2,3,4].
+//Дан массив целых чисел. Реализовать умножение двух чисел.
+//Пример, [1, 2, 3, 4] * [1, 1] = [1, 3, 5, 7, 4].
+//Результат – число, представленное массивом.
+
 package groupb;
 
 import java.util.Scanner;
+import functions.ArrayUtils;
 
 public class ArrayMultiplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите количество цифр первого числа:");
-        int n1 = scanner.nextInt();
-        int[] num1 = new int[n1];
-        System.out.println("Введите цифры первого числа (слева направо):");
-        for (int i = 0; i < n1; i++) {
-            num1[i] = scanner.nextInt();
-        }
-
-        System.out.println("Введите количество цифр второго числа:");
-        int n2 = scanner.nextInt();
-        int[] num2 = new int[n2];
-        System.out.println("Введите цифры второго числа (слева направо):");
-        for (int i = 0; i < n2; i++) {
-            num2[i] = scanner.nextInt();
-        }
+        int[] num1 = ArrayUtils.inputArrayFromUser(scanner, "для первого числа");
+        int[] num2 = ArrayUtils.inputArrayFromUser(scanner, "для второго числа");
 
         int[] result = multiplyArrays(num1, num2);
 
-        System.out.print("Результат умножения: [");
-        for (int i = 0; i < result.length; i++) {
-            System.out.print(result[i]);
-            if (i < result.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
+        ArrayUtils.printArray(result, "Результат умножения");
 
         scanner.close();
     }

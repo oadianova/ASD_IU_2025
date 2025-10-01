@@ -1,21 +1,19 @@
+//Дан целочисленный массив. Верните число, частота встречи которого в
+//массиве равна его значению. Если таких чисел нет, вернуть «-1». Если
+//таких чисел несколько, вернуть наибольшее.
+
 package groupb;
 
 import java.util.Scanner;
+import functions.ArrayUtils;
 
 public class FrequencyNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите количество элементов массива:");
-        int n = scanner.nextInt();
-
-        int[] array = new int[n];
-        System.out.println("Введите элементы массива:");
-        for (int i = 0; i < n; i++) {
-            array[i] = scanner.nextInt();
-        }
-
+        int[] array = ArrayUtils.inputArrayFromUser(scanner, "");
         int result = findFrequencyNumber(array);
+
         System.out.println("Результат: " + result);
 
         scanner.close();

@@ -1,19 +1,18 @@
+//Дан массив целых чисел и целое число. Реализовать метод, который
+//возвращает индексы тех двух чисел массива, которые дают сумму
+//заданного числа. Индексы вернуть в любом порядке. Один элемент в сумме
+//использовать дважды нельзя.
+
 package groupb;
 
 import java.util.Scanner;
+import functions.ArrayUtils;
 
 public class TwoSum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите количество элементов массива:");
-        int n = scanner.nextInt();
-
-        int[] array = new int[n];
-        System.out.println("Введите элементы массива:");
-        for (int i = 0; i < n; i++) {
-            array[i] = scanner.nextInt();
-        }
+        int[] array = ArrayUtils.inputArrayFromUser(scanner, "");
 
         System.out.println("Введите целевую сумму:");
         int target = scanner.nextInt();
@@ -30,9 +29,8 @@ public class TwoSum {
     }
 
     public static int[] findTwoSum(int[] array, int target) {
-        // Сложность O(n log n) - сортировка + два указателя, при n = натуральному числу, log(n)<n^2
-        int[] sortedArray = copyArray(array);
-        sortArray(sortedArray);
+        int[] sortedArray = ArrayUtils.copyArray(array);
+        ArrayUtils.sortArray(sortedArray);
 
         int left = 0;
         int right = sortedArray.length - 1;
@@ -50,26 +48,6 @@ public class TwoSum {
         }
 
         return new int[]{-1, -1};
-    }
-
-    private static int[] copyArray(int[] array) {
-        int[] copy = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            copy[i] = array[i];
-        }
-        return copy;
-    }
-
-    private static void sortArray(int[] array) {
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int j = 0; j < array.length - i - 1; j++) {
-                if (array[j] > array[j + 1]) {
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                }
-            }
-        }
     }
 
     private static int[] findOriginalIndices(int[] original, int value1, int value2) {

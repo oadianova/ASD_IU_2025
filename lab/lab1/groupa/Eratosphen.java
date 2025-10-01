@@ -1,8 +1,11 @@
+//Дано целое число. Реализуйте метод, который находит N первых простых
+//чисел. Используйте алгоритм «Решето Эратосфена».
+
 package groupa;
 
 import java.util.Scanner;
 
-public class Eratosphen {
+public class SieveOfEratosthenes {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,11 +28,7 @@ public class Eratosphen {
             return new int[0];
         }
 
-        if (n == 1) {
-            return new int[]{2};
-        }
-
-        int maxSize = n * 20;
+        int maxSize = calculateUpperBound(n);
         boolean[] isPrime = new boolean[maxSize + 1];
 
         for (int i = 2; i <= maxSize; i++) {
@@ -46,16 +45,27 @@ public class Eratosphen {
 
         int[] primes = new int[n];
         int count = 0;
-        int number = 2;
 
-        while (count < n && number <= maxSize) {
-            if (isPrime[number]) {
-                primes[count] = number;
+        for (int i = 2; i <= maxSize && count < n; i++) {
+            if (isPrime[i]) {
+                primes[count] = i;
                 count++;
             }
-            number++;
         }
 
         return primes;
+    }
+
+    private static int calculateUpperBound(int n) {
+        if (n <= 0) return 0;
+        if (n == 1) return 2;
+
+        double lnN = Math.log(n);
+        double lnLnN = Math.log(lnN);
+        double upperBound = n * (lnN + lnLnN - 0.5);
+
+        int result = (int) Math.ceil(upperBound * 1.2);
+
+        return Math.max(result, 10);
     }
 }
