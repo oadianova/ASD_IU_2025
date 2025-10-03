@@ -23,15 +23,16 @@ public class ArrayNumberMultiplier {
 
     private static void fillDigitsArray(int[] array, int arraySize, Scanner scanner) {
         System.out.println("Введите " + arraySize + " цифр (от 0 до 9):");
-        for (int i = 0; i < arraySize; i++) {
+        int i = 0;
+        while (i < arraySize) {
             System.out.print("Введите цифру #" + (i + 1) + ": ");
             int currentValue = scanner.nextInt();
-            if (currentValue < 0 || currentValue > 9) {
+            if (currentValue >= 0 && currentValue <= 9) {
+                array[i] = currentValue;
+                i++;
+            } else {
                 System.out.println("Цифра должна быть от 0 до 9, попробуйте еще раз");
-                i--;
-                continue;
             }
-            array[i] = currentValue;
         }
     }
 

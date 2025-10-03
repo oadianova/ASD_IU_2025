@@ -14,15 +14,18 @@ public class TwoSmallestPositiveSum {
         }
 
         int[] array = new int[size];
-        System.out.println("Введите " + size + " целых чисел:");
-
-        for (int i = 0; i < size; i++) {
-            System.out.print("Введите число #" + (i + 1) + ": ");
-            array[i] = scanner.nextInt();
-        }
+        fillArray(array, scanner);
 
         int result = sumOfTwoSmallestPositive(array);
         System.out.println("Сумма двух наименьших положительных чисел: " + result);
+    }
+
+    private static void fillArray(int[] array, Scanner scanner) {
+        System.out.println("Введите " + array.length + " целых чисел:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Введите число #" + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
     }
 
     private static int sumOfTwoSmallestPositive(int[] array) {

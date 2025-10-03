@@ -20,15 +20,16 @@ public class BinaryPrefixDivisibility {
 
     private static void fillBinaryArray(int[] array, int arraySize, Scanner scanner) {
         System.out.println("Введите " + arraySize + " двоичных цифр (0 или 1):");
-        for (int i = 0; i < arraySize; i++) {
+        int i = 0;
+        while (i < arraySize) {
             System.out.print("Введите цифру #" + (i + 1) + ": ");
             int currentValue = scanner.nextInt();
-            if (currentValue != 0 && currentValue != 1) {
+            if (currentValue == 0 || currentValue == 1) {
+                array[i] = currentValue;
+                i++;
+            } else {
                 System.out.println("Цифра должна быть 0 или 1, попробуйте еще раз");
-                i--;
-                continue;
             }
-            array[i] = currentValue;
         }
     }
 
