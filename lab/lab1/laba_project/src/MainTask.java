@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class MainTask {
 
     public static void main(String[] args) {
@@ -19,8 +18,8 @@ public class MainTask {
         System.out.print("Введите число, индекс которого необходимо получить: ");
         int targetValue = scanner.nextInt();
 
-        int iterativeResult = firstMethod(array, arraySize, targetValue);
-        int recursiveResult = secondMethod(array, arraySize, targetValue);
+        int iterativeResult = binarySearchIterative(array, arraySize, targetValue);
+        int recursiveResult = binarySearchRecursive(array, arraySize, targetValue);
 
         System.out.println("Резукльтат итеративного поиска:");
         System.out.println(iterativeResult);
@@ -30,17 +29,16 @@ public class MainTask {
 
     private static void fillArray(int[] array, int arraySize, Scanner scanner) {
         System.out.println("Введите " + arraySize + " целых чисел в порядке возрастания:");
-        int previousValue = Integer.MIN_VALUE;
-        for (int i = 0; i < arraySize; i++) {
+        int i = 0;
+        while (i < arraySize) {
             System.out.print("Введите число #" + (i + 1) + ": ");
             int currentValue = scanner.nextInt();
-            if (previousValue >= currentValue) {
+            if (i == 0 || currentValue > array[i - 1]) {
+                array[i] = currentValue;
+                i++;
+            } else {
                 System.out.println("Числа должны идти в порядке возрастания, попробуйте еще раз))");
-                i--;
-                continue;
             }
-            array[i] = currentValue;
-            previousValue = currentValue;
         }
     }
 
@@ -55,7 +53,7 @@ public class MainTask {
         System.out.println("]");
     }
 
-    private static int firstMethod(int[] array, int arraySize, int target) {
+    private static int binarySearchIterative(int[] array, int arraySize, int target) {
         int left = 0;
         int right = arraySize - 1;
 
@@ -75,7 +73,7 @@ public class MainTask {
         return -1;
     }
 
-    private static int secondMethod(int[] array, int arraySize, int target) {
+    private static int binarySearchRecursive(int[] array, int arraySize, int target) {
         return recursive(array, target, 0, arraySize - 1);
     }
 
