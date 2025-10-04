@@ -7,53 +7,16 @@ import java.util.Scanner;
 //число, которое является суммой двух наименьших положительных чисел.
 
 public class TaskB3 {
-    private final Scanner scanner;
 
     public TaskB3(Scanner externalScanner) {
         scanner = externalScanner;
     }
 
-    private int getLengthFromConsole() {
-        int length;
-        while (true) {
-            System.out.print("Введите количество элементов массива: ");
-            length = scanner.nextInt();
-            if (length < 5) {
-                System.out.println("Некорректное значение для длины массива. Минимальное значение: 5. Попробуйте снова.");
-            } else break;
-        }
-        scanner.nextLine();
-        return length;
-    }
-
-    private int[] getNumberArrayFromConsole(int capacity) {
-        int[] inputArray = new int[capacity];
-        System.out.println("Заполните массив целыми числами");
-        for (int i = 0; i < capacity; i++) {
-            inputArray[i] = scanner.nextInt();
-        }
-        scanner.nextLine();
-        return inputArray;
-    }
-
-    private int indexOfPositiveMinimum(int[] array) {
-        int currentMinimumIndex = -1;
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > 0) {
-                if (currentMinimumIndex == -1 || array[i] < array[currentMinimumIndex]) {
-                    currentMinimumIndex = i;
-                }
-            }
-        }
-
-        return currentMinimumIndex;
-    }
-
     public void start() {
         System.out.println("\n========Задание Б3========\n");
-        int capacity = getLengthFromConsole();
-        int[] inputArray = getNumberArrayFromConsole(capacity);
+        int capacity = ConsolePresets.getLengthFromConsole(scanner, 5);
+        System.out.println("Заполните массив целыми числами");
+        int[] inputArray = ConsolePresets.getNumberArrayFromConsole(capacity, scanner);
 
         try {
             int firstMinimumIndex = indexOfPositiveMinimum(inputArray);
@@ -80,5 +43,21 @@ public class TaskB3 {
                     break;
             }
         }
+    }
+
+    private final Scanner scanner;
+
+    private int indexOfPositiveMinimum(int[] array) {
+        int currentMinimumIndex = -1;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 0) {
+                if (currentMinimumIndex == -1 || array[i] < array[currentMinimumIndex]) {
+                    currentMinimumIndex = i;
+                }
+            }
+        }
+
+        return currentMinimumIndex;
     }
 }

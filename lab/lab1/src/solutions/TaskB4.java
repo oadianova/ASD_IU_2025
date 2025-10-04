@@ -22,27 +22,33 @@ public class TaskB4 {
         scanner = externalScanner;
     }
 
-    private int getLengthFromConsole() {
-        int length;
-        while (true) {
-            System.out.print("Введите количество элементов массива: ");
-            length = scanner.nextInt();
-            if (length < 0) {
-                System.out.println("Некорректное значение для длины массива. Попробуйте снова.");
-            } else break;
-        }
+    public void start() {
+        System.out.println("\n========Задание Б4========\n");
+        int capacity = ConsolePresets.getLengthFromConsole(scanner, 1);
+        System.out.println("Заполните массив целыми числами 1 или 0");
+        int[] binaryArray = ConsolePresets.getNumberArrayFromConsole(capacity, scanner);
+
+        System.out.println("Введите число, которое будет использоваться как делитель:");
+        int divider = scanner.nextInt();
+
+        int[] decimalArray = transformToDecimal(binaryArray);
+
+        boolean[] isMultipleOfDividerArray = findMultiples(decimalArray, divider);
+
+        System.out.println("Результат работы:");
+        printBooleanArray(isMultipleOfDividerArray);
+
         scanner.nextLine();
-        return length;
     }
 
-    private int[] getNumberArrayFromConsole(int capacity) {
-        int[] inputArray = new int[capacity];
-        System.out.println("Заполните массив числами 1 или 0");
-        for (int i = 0; i < capacity; i++) {
-            inputArray[i] = scanner.nextInt();
+    private int[] transformToDecimal(int[] binaryArray) {
+        int[] decimalArray = new int[binaryArray.length];
+        for (int i = 0; i < decimalArray.length; i++) {
+            for (int j = 0; j < i + 1; j++) {
+                decimalArray[i] += power(2, i - j) * binaryArray[j];
+            }
         }
-        scanner.nextLine();
-        return inputArray;
+        return decimalArray;
     }
 
     private int power(int base, int exponent) {
@@ -56,16 +62,6 @@ public class TaskB4 {
         return result;
     }
 
-    private int[] transformToDecimal(int[] binaryArray) {
-        int[] decimalArray = new int[binaryArray.length];
-        for (int i = 0; i < decimalArray.length; i++) {
-            for (int j = 0; j < i + 1; j++) {
-                decimalArray[i] += power(2, i - j) * binaryArray[j];
-            }
-        }
-        return decimalArray;
-    }
-
     private boolean[] findMultiples(int[] decimalArray, int divider) {
         boolean[] result = new boolean[decimalArray.length];
         for (int i = 0; i < result.length; i++) {
@@ -77,33 +73,11 @@ public class TaskB4 {
     private void printBooleanArray(boolean[] booleans) {
         System.out.print("[");
         for (int i = 0; i < booleans.length - 1; i++) {
-            if (booleans[i]) {
-                System.out.print("true");
-            } else {
-                System.out.print("false");
-            }
+            System.out.print(booleans[i]);
             System.out.print(", ");
         }
-        if (booleans[booleans.length - 1]) {
-            System.out.println("true]");
-        } else {
-            System.out.println("false]");
-        }
-    }
 
-    public void start() {
-        System.out.println("\n========Задание Б4========\n");
-        int capacity = getLengthFromConsole();
-        int[] binaryArray = getNumberArrayFromConsole(capacity);
-
-        System.out.println("Введите число, которое будет использоваться как делитель:");
-        int divider = scanner.nextInt();
-
-        int[] decimalArray = transformToDecimal(binaryArray);
-
-        boolean[] isMultipleOfDividerArray = findMultiples(decimalArray, divider);
-
-        System.out.println("Результат работы:");
-        printBooleanArray(isMultipleOfDividerArray);
+        System.out.print(booleans[booleans.length - 1]);
+        System.out.println("]");
     }
 }

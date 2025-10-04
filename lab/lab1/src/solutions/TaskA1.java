@@ -9,21 +9,8 @@ import java.util.Scanner;
 //число. Метод должен возвращать строку с преобразованным значением.
 public class TaskA1 {
 
-    private final Scanner scanner;
-
     public TaskA1(Scanner externalScanner) {
         scanner = externalScanner;
-    }
-
-    private String convertDecimalToM(int decimal, int base) {
-        String result = "";
-        int modulo = 0;
-        while (decimal > 0) {
-            modulo = decimal % base;
-            result = Integer.toString(modulo) + result;
-            decimal /= base;
-        }
-        return result;
     }
 
     public void start() {
@@ -37,6 +24,18 @@ public class TaskA1 {
         scanner.nextLine();
 
         System.out.println("Результат: " + convertDecimalToM(m, n));
+    }
 
+    private final Scanner scanner;
+
+    private String convertDecimalToM(int decimal, int base) {
+        String result = "";
+        int modulo = 0;
+        while (decimal > 0) {
+            modulo = decimal % base;
+            result = Integer.toString(modulo) + result;
+            decimal /= base;
+        }
+        return result;
     }
 }

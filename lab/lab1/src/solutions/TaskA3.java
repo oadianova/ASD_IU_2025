@@ -8,19 +8,8 @@ import java.util.Scanner;
 //определяет, является ли строка, изограммой. Пустая строка является
 //изограммой.
 public class TaskA3 {
-    private final Scanner scanner;
-
     public TaskA3(Scanner externalScanner) {
         scanner = externalScanner;
-    }
-
-    private boolean isIsogram(String word) {
-        int index = 0;
-        for (int i = 0; i < word.length() - 1; i++) {
-            index = word.indexOf(word.charAt(i), i + 1);
-            if (index != -1) return false;
-        }
-        return true;
     }
 
     public void start() {
@@ -34,5 +23,16 @@ public class TaskA3 {
         } else {
             System.out.println(" = Введённая строка не является изограммой");
         }
+    }
+
+    private final Scanner scanner;
+
+    private boolean isIsogram(String word) {
+        int index = 0;
+        for (int i = 0; i < word.length() - 1; i++) {
+            index = word.indexOf(word.charAt(i), i + 1);
+            if (index != -1) return false;
+        }
+        return true;
     }
 }
