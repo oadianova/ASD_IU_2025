@@ -7,6 +7,14 @@ import java.util.Scanner;
  */
 
 class B1 {
+	public static void main(String[] args) {
+		int[] array;
+		try (Scanner input = new Scanner(System.in)) {
+			System.out.println("Введите массив чисел");
+			array = ArrayUtils.scanIntArray(input);
+		}
+		System.out.printf("Ответ: %d\n", task(array));
+	}
 	private static int task(int[] input) {
 		ArrayUtils.shellSort(input);
 		int mostNumber = -1;
@@ -25,14 +33,6 @@ class B1 {
 			mostNumber = currentOccurences;
 		}
 		return mostNumber;
-	}
-	public static void main(String[] args) {
-		int[] array;
-		try (Scanner input = new Scanner(System.in)) {
-			System.out.println("Введите массив чисел");
-			array = ArrayUtils.scanIntArray(input);
-		}
-		System.out.printf("Ответ: %d\n", task(array));
 	}
 }
 

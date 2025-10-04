@@ -19,19 +19,6 @@ class ArrayUtils {
 	public static int recursiveImplementationOfBinarySearch(int[] array, int element) {
 		return recursiveImplementationOfBinarySearch(array, element, 0, array.length);
 	}
-	private static int recursiveImplementationOfBinarySearch(int[] array, int element, int i, int j) {
-		if (i >= j) {
-			return -1;
-		}
-		int middle = (i + j) / 2;
-		if (array[middle] < element) {
-			return recursiveImplementationOfBinarySearch(array, element, middle + 1, j);
-		} else if (array[middle] == element) {
-			return middle;
-		} else {
-			return recursiveImplementationOfBinarySearch(array, element, i, middle);
-		}
-	}
 	public static int iterativeImplementationOfBinarySearch(int[] array, int element) {
 		int i = 0, j = array.length;
 		while (i < j) {
@@ -53,6 +40,19 @@ class ArrayUtils {
 			gap = gap / 2;
 		}
 		shellRound(array, 1);
+	}
+	private static int recursiveImplementationOfBinarySearch(int[] array, int element, int i, int j) {
+		if (i >= j) {
+			return -1;
+		}
+		int middle = (i + j) / 2;
+		if (array[middle] < element) {
+			return recursiveImplementationOfBinarySearch(array, element, middle + 1, j);
+		} else if (array[middle] == element) {
+			return middle;
+		} else {
+			return recursiveImplementationOfBinarySearch(array, element, i, middle);
+		}
 	}
 	private static void shellRound(int[] array, int gap) {
 		for (int i = gap; i < array.length; i++) {

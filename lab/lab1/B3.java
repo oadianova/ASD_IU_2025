@@ -6,19 +6,6 @@ import java.util.Scanner;
  */
 
 class B3 {
-	private static int task(int[] array) {
-		ArrayUtils.shellSort(array);
-		int skipIndex = 0;
-		for (; skipIndex < array.length; skipIndex++) {
-			if (array[skipIndex] > 0) {
-				break;
-			}
-		}
-		if (skipIndex >= array.length - 1) {
-			return -1;
-		}
-		return array[skipIndex] + array[skipIndex + 1];
-	}
 	public static void main(String[] args) {
 		int[] array;
 		try (Scanner input = new Scanner(System.in)) {
@@ -31,5 +18,18 @@ class B3 {
 		} else {
 			System.out.printf("Ответ: %d\n", result);
 		}
+	}
+	private static int task(int[] array) {
+		ArrayUtils.shellSort(array);
+		int skipIndex = 0;
+		for (; skipIndex < array.length; skipIndex++) {
+			if (array[skipIndex] > 0) {
+				break;
+			}
+		}
+		if (skipIndex >= array.length - 1) {
+			return -1;
+		}
+		return array[skipIndex] + array[skipIndex + 1];
 	}
 }

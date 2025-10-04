@@ -13,15 +13,6 @@ import java.util.Scanner;
  */
 
 class B4 {
-	private static boolean[] task(int[] bitArray, int divisor) {
-		int accumilator = 0;
-		boolean[] resultArray = new boolean[bitArray.length];
-		for (int i = 0; i < bitArray.length; i++) {
-			accumilator = accumilator * 2 + bitArray[i];
-			resultArray[i] = accumilator % divisor == 0;
-		}
-		return resultArray;
-	}
 	public static void main(String[] args) {
 		int[] bitArray;
 		int divisor;
@@ -41,5 +32,14 @@ class B4 {
 			}
 		}
 		System.out.println();
+	}
+	private static boolean[] task(int[] bitArray, int divisor) {
+		int accumilator = 0;
+		boolean[] resultArray = new boolean[bitArray.length];
+		for (int i = 0; i < bitArray.length; i++) {
+			accumilator = accumilator * 2 + bitArray[i];
+			resultArray[i] = accumilator % divisor == 0;
+		}
+		return resultArray;
 	}
 }
