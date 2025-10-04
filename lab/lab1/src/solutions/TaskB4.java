@@ -24,9 +24,9 @@ public class TaskB4 {
 
     public void start() {
         System.out.println("\n========Задание Б4========\n");
-        int capacity = ConsolePresets.getLengthFromConsole(scanner, 1);
+        int capacity = ConsoleArrayPresets.getLength(scanner, 1);
         System.out.println("Заполните массив целыми числами 1 или 0");
-        int[] binaryArray = ConsolePresets.getNumberArrayFromConsole(capacity, scanner);
+        int[] binaryArray = ConsoleArrayPresets.getNumberArray(capacity, scanner);
 
         System.out.println("Введите число, которое будет использоваться как делитель:");
         int divider = scanner.nextInt();

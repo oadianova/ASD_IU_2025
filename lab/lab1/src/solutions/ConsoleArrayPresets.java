@@ -2,8 +2,8 @@ package solutions;
 
 import java.util.Scanner;
 
-public class ConsolePresets {
-    public static int getLengthFromConsole(Scanner scanner, int minimumValue) {
+public class ConsoleArrayPresets {
+    public static int getLength(Scanner scanner, int minimumValue) {
         int length;
         while (true) {
             System.out.print("Введите количество элементов массива: ");
@@ -17,7 +17,7 @@ public class ConsolePresets {
         return length;
     }
 
-    public static int[] getNumberArrayFromConsole(int capacity, Scanner scanner) {
+    public static int[] getNumberArray(int capacity, Scanner scanner) {
         int[] inputArray = new int[capacity];
         for (int i = 0; i < capacity; i++) {
             inputArray[i] = scanner.nextInt();

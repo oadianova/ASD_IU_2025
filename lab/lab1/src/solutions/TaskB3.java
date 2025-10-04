@@ -14,9 +14,9 @@ public class TaskB3 {
 
     public void start() {
         System.out.println("\n========Задание Б3========\n");
-        int capacity = ConsolePresets.getLengthFromConsole(scanner, 5);
+        int capacity = ConsoleArrayPresets.getLength(scanner, 5);
         System.out.println("Заполните массив целыми числами");
-        int[] inputArray = ConsolePresets.getNumberArrayFromConsole(capacity, scanner);
+        int[] inputArray = ConsoleArrayPresets.getNumberArray(capacity, scanner);
 
         try {
             int firstMinimumIndex = indexOfPositiveMinimum(inputArray);

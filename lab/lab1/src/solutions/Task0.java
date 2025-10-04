@@ -12,9 +12,9 @@ public class Task0 {
 
     public void start() {
         System.out.println("========Задание 0========\n");
-        int capacity = ConsolePresets.getLengthFromConsole(scanner, 1);
+        int capacity = ConsoleArrayPresets.getLength(scanner, 1);
         System.out.println("Заполните массив целыми числами по возрастанию");
-        int[] inputArray = ConsolePresets.getNumberArrayFromConsole(capacity, scanner);
+        int[] inputArray = ConsoleArrayPresets.getNumberArray(capacity, scanner);
 
         System.out.print("Массив заполнен. Введите число, которое необходимо найти: ");
         int target = scanner.nextInt();
