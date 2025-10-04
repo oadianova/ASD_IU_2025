@@ -16,21 +16,35 @@ class ArrayUtils {
 		}
 		System.out.println();
 	}
-	public static int indexOf(int[] array, int element) {
-		return indexOfRange(array, element, 0, array.length);
+	public static int recursiveImplementationOfBinarySearch(int[] array, int element) {
+		return recursiveImplementationOfBinarySearch(array, element, 0, array.length);
 	}
-	private static int indexOfRange(int[] array, int element, int i, int j) {
+	private static int recursiveImplementationOfBinarySearch(int[] array, int element, int i, int j) {
 		if (i >= j) {
 			return -1;
 		}
 		int middle = (i + j) / 2;
 		if (array[middle] < element) {
-			return indexOfRange(array, element, middle + 1, j);
+			return recursiveImplementationOfBinarySearch(array, element, middle + 1, j);
 		} else if (array[middle] == element) {
 			return middle;
 		} else {
-			return indexOfRange(array, element, i, middle);
+			return recursiveImplementationOfBinarySearch(array, element, i, middle);
 		}
+	}
+	public static int iterativeImplementationOfBinarySearch(int[] array, int element) {
+		int i = 0, j = array.length;
+		while (i < j) {
+			int middle = (i + j) / 2;
+			if (array[middle] < element) {
+				i = middle + 1;
+			} else if (array[middle] == element){
+				return middle;
+			} else {
+				j = middle;
+			}
+		}
+		return -1;
 	}
 	public static void shellSort(int[] array) {
 		int gap = array.length / 2;
