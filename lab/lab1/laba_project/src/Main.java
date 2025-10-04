@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("0) Основное задание.");
+        System.out.println("0) Основное задание. ");
         MainTask.main(args);
         System.out.println();
 
