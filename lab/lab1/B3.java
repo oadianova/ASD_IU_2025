@@ -18,7 +18,7 @@ class B3 {
 		int[] array;
 		try (Scanner input = new Scanner(System.in)) {
 			System.out.println("Введите массив из 5 или более целых чисел");
-			array = ArrayUtils.nextArray(input);
+			array = ArrayUtils.scanIntArray(input);
 		} 
 		int result = task(array);
 		if (result < 0) {

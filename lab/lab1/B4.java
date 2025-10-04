@@ -15,7 +15,7 @@ class B4 {
 		int divisor;
 		try (Scanner input = new Scanner(System.in)) {
 			System.out.println("Введите массив из 0 и 1");
-			bitArray = ArrayUtils.nextArray(input);
+			bitArray = ArrayUtils.scanIntArray(input);
 			System.out.print("Введите не нулевое число: ");
 			divisor = input.nextInt();
 		}

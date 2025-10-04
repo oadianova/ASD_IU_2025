@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class ArrayUtils {
-	public static int[] nextArray(Scanner input) {
+	public static int[] scanIntArray(Scanner input) {
 		System.out.println("Длинна массива: ");
 		int[] array = new int[input.nextInt()];
 		System.out.println("Массив: ");

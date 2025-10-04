@@ -6,7 +6,7 @@ class Main {
 		int number;
 		try (Scanner input = new Scanner(System.in)) {
 			System.out.println("Введите отсортированный массив");
-			array = ArrayUtils.nextArray(input);
+			array = ArrayUtils.scanIntArray(input);
 			System.out.print("Число: ");
 			number = input.nextInt();
 		}

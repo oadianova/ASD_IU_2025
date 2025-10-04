@@ -25,7 +25,7 @@ class B1 {
 		int[] array;
 		try (Scanner input = new Scanner(System.in)) {
 			System.out.println("Введите массив чисел");
-			array = ArrayUtils.nextArray(input);
+			array = ArrayUtils.scanIntArray(input);
 		}
 		System.out.printf("Ответ: %d\n", task(array));
 	}
