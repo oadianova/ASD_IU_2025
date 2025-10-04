@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/*
+ * Реализовать алгоритм бинарного поиска двумя способами.
+ */
+
 class Main {
 	public static void main(String[] args) {
 		int[] array;

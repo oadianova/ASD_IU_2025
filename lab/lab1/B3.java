@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/*
+ * Дан массив целых чисел. Минимальное количество элементов – 5.
+ * Вернуть число, которое является суммой двух наименьших положительных чисел.
+ */
+
 class B3 {
 	private static int task(int[] array) {
 		ArrayUtils.shellSort(array);
