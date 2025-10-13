@@ -4,26 +4,6 @@
 
 import java.util.Scanner;
 
-public class ArrayUtils {
-    
-    public static int countFrequency(int[] numbers, int target) {
-        int count = 0;
-        for (int number : numbers) {
-            if (number == target) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-    }
-}
-
 public class FrequencyEqualsValue {
 
     public static void main(String[] args) {
@@ -61,5 +41,25 @@ public class FrequencyEqualsValue {
 
     private static boolean isLuckyNumber(int number, int frequency) {
         return number == frequency;
+    }
+}
+
+class ArrayUtils {  
+
+    public static int countFrequency(int[] numbers, int target) {
+        int count = 0;
+        for (int number : numbers) {
+            if (number == target) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
     }
 }
