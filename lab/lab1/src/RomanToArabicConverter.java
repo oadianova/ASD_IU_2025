@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 public class RomanToArabicConverter {
 
-    public static int getValue(char romanChar) {
-        switch (romanChar) {
-            case 'I': return 1;
-            case 'V': return 5;
-            case 'X': return 10;
-            case 'L': return 50;
-            case 'C': return 100;
-            case 'D': return 500;
-            case 'M': return 1000;
-            default: return 0;
-        }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Roman number: ");
+        String romanNumber = scanner.nextLine().toUpperCase();
+
+        int arabicNumber = romanToArabic(romanNumber);
+        System.out.println(romanNumber + " = " + arabicNumber);
+
+        scanner.close();
     }
 
     public static int romanToArabic(String roman) {
@@ -36,15 +35,16 @@ public class RomanToArabicConverter {
         return result;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter Roman number: ");
-        String romanNumber = scanner.nextLine().toUpperCase();
-
-        int arabicNumber = romanToArabic(romanNumber);
-        System.out.println(romanNumber + " = " + arabicNumber);
-
-        scanner.close();
+    private static int getValue(char romanChar) {
+        switch (romanChar) {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+            default: return 0;
+        }
     }
 }
