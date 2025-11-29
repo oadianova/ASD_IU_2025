@@ -9,10 +9,6 @@ import java.util.Scanner;
 
 public class TopKFrequentElements {
     public static int[] topKFrequent(int[] nums, int k) {
-        if (nums == null || nums.length == 0 || k <= 0) {
-            return new int[0];
-        }
-
         // Сортируем исходный массив - O(n log n)
         int[] sorted = nums.clone();
         Arrays.sort(sorted);
@@ -124,4 +120,5 @@ O(n log n) + O(n) + O(m) + O(m log m) + O(k) = O(n log n)
 - Все остальные слагаемые не превышают O(n log n)
 - Даже в худшем случае, когда m = n (все элементы уникальны),
   сложность остается O(n log n)
+
 */
