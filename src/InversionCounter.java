@@ -8,11 +8,6 @@ import java.util.ArrayList;
  */
 public class InversionCounter {
 
-    /**
-     * Метод для чтения массива с клавиатуры
-     * Сложность: O(n), где n - размер массива
-     * Каждая операция чтения занимает O(1), всего n операций
-     */
     private static int[] readArrayFromInput() {
         Scanner inputScanner = new Scanner(System.in);
 
@@ -60,11 +55,6 @@ public class InversionCounter {
         return inversionList;
     }
 
-    /**
-     * Метод для вывода результатов
-     * Сложность: O(k), где k - количество найденных инверсий
-     * В худшем случае k = n(n-1)/2, поэтому сложность может быть O(n²)
-     */
     private static void displayResults(ArrayList<String> inversions) {
         int totalInversions = inversions.size();
 
@@ -126,4 +116,5 @@ public class InversionCounter {
    - Ожидаемое количество инверсий: n(n-1)/4
    - Время выполнения: O(n²)
    - Память: O(n²)
+
 */
